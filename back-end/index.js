@@ -1,9 +1,10 @@
 const express = require('express');
 const multer = require('multer');
+const cors = require('cors');
 
 app = express();
 PORT = 3001
-
+app.use(cors());
 const upload = multer({dest: "uploads/"})
 
 app.get('/', (req, res) => {
