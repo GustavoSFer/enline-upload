@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
   res.send('Bem vindo')
 })
 
-app.post('/upload', upload.single("file"), (req, res) => {
+app.post('/upload', upload.single("file"), async (req, res) => {
   res.send('Arquivo recebido!')
 })
 
