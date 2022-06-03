@@ -3,6 +3,7 @@ const multer = require('multer');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const uploadController = require('./controller');
+const error = require('./middleware');
 
 app = express();
 PORT = 3001
@@ -20,10 +21,10 @@ const upload = multer({storage})
 app.use(cors());
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-  res.status(200).json('Okkk')
-})
+app.get('/', uploadController.fetchFiles)
 
 app.post('/upload', upload.single("file"), uploadController.upload);
+
+app.use(error)
 
 app.listen(PORT, () => console.log(`Servidor rodando na porta: ${PORT}`))
