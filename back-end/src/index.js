@@ -2,7 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const uploadController = require('./src/controller');
+const uploadController = require('./controller');
 
 app = express();
 PORT = 3001
