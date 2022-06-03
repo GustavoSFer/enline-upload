@@ -4,14 +4,24 @@ const cors = require('cors');
 
 app = express();
 PORT = 3001
-app.use(cors());
-const upload = multer({dest: "uploads/"})
 
-app.get('/', (req, res) => {
-  res.send('Bem vindo')
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads/");
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname)
+  }
 })
 
-app.post('/upload', upload.single("file"), async (req, res) => {
+const upload = multer({storage})
+app.use(cors());
+
+app.get('/', (req, res) => {
+  res.status(200).json('Okkk')
+})
+
+app.post('/upload', upload.single("file"), (req, res) => {
   res.send('Arquivo recebido!')
 })
 
