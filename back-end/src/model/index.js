@@ -7,15 +7,15 @@ const fetchFiles = async () => {
 }
 
 const upload = async (file) => {
-  const uploadFile = await model.create({ name: file.originalname, file: file.path });
-
-  return uploadFile;
+  await model.create({ name: file.originalname, file: file.path });
+  
+  return 'Cadastrado com sucesso!';
 }
 
 const remove = async (id) => {
-  const removeFile = await model.deleteOne({ _id: id });
+  await model.deleteOne({ _id: id });
 
-  return removeFile;
+  return 'Removido com sucesso!';
 };
 
 module.exports = {

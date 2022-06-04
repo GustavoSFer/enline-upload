@@ -13,6 +13,12 @@ const filesDb = [
   }
 ]
 
+const addFile = {
+  "file": "uploads/Captura de tela de 2022-05-19 15-45-25.png",
+  "name": "Captura de tela de 2022-05-19 15-45-25.png",
+}
+
 module.exports = {
   filesDb,
+  addFile,
 }
