@@ -12,7 +12,14 @@ const upload = async (file) => {
   return uploadFile;
 }
 
+const remove = async (id) => {
+  const removeFile = await model.deleteOne({ _id: id });
+
+  return removeFile;
+};
+
 module.exports = {
   fetchFiles,
   upload,
+  remove,
 }

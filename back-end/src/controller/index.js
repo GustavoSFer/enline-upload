@@ -16,7 +16,15 @@ const upload = async (req, res, next) => {
   res.status(201).json(uploadFile);
 }
 
+const remove = async (req, res) => {
+  const { id } = req.params;
+  const removeFile = await service.remove(id);
+
+  res.status(200).json(removeFile);
+};
+
 module.exports = {
   fetchFiles,
   upload,
+  remove,
 }

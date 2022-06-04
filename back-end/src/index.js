@@ -24,6 +24,7 @@ app.use('/uploads', express.static('uploads'));
 
 app.get('/', uploadController.fetchFiles);
 app.post('/upload', upload.single("file"), uploadController.upload);
+app.delete('/:id', uploadController.remove)
 
 app.use(error);
 
