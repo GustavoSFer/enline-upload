@@ -12,5 +12,10 @@ describe('Model', () => {
       const files = await fileModel.fetchFiles();
       expect(files).to.deep.eq(filesDb);
     });
+    it('Quando não tem dados no DB deve retornar um array vazio', async () => {
+      Sinon.stub(model, 'find').resolves([]);
+      const files = await fileModel.fetchFiles();
+      expect(files).to.be.empty;
+    });
   });
 });
