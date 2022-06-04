@@ -4,6 +4,7 @@ mongoose.connect('mongodb://localhost:27017/enline-db');
 
 const schema = new mongoose.Schema({
   file: String,
+  name: String,
   date: Date,
 })
 
