@@ -7,7 +7,7 @@ const fetchFiles = async () => {
 }
 
 const upload = async (file) => {
-  const uploadFile = await model.create({ file: file.originalname });
+  const uploadFile = await model.create({ file: file.path });
 
   return uploadFile;
 }

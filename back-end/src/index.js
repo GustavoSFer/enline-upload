@@ -6,7 +6,7 @@ const uploadController = require('./controller');
 const error = require('./middleware');
 
 app = express();
-PORT = 3001
+PORT = 3001;
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -15,16 +15,16 @@ const storage = multer.diskStorage({
   filename: (req, file, cb) => {
     cb(null, file.originalname)
   }
-})
+});
 
-const upload = multer({storage})
+const upload = multer({storage});
 app.use(cors());
 app.use(bodyParser.json());
+app.use('/uploads', express.static('uploads'));
 
-app.get('/', uploadController.fetchFiles)
-
+app.get('/', uploadController.fetchFiles);
 app.post('/upload', upload.single("file"), uploadController.upload);
 
-app.use(error)
+app.use(error);
 
-app.listen(PORT, () => console.log(`Servidor rodando na porta: ${PORT}`))
+app.listen(PORT, () => console.log(`Servidor rodando na porta: ${PORT}`));
