@@ -18,6 +18,7 @@ const upload = async (req, res, next) => {
 
 const remove = async (req, res) => {
   const { id } = req.params;
+  console.log('entramos na parte de deletar')
   const removeFile = await service.remove(id);
 
   res.status(200).json(removeFile);

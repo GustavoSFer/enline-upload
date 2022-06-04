@@ -16,7 +16,7 @@ const upload = async (file) => {
 }
 
 const remove = async (id) => {
-  const removeFile = await listModel.remove(id);
+  const removeFile = await model.remove(id);
 
   return removeFile;
 };
