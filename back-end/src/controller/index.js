@@ -5,16 +5,14 @@ const fetchFiles = async (req, res) => {
   if (readFile.code) return next(readFile);
 
   res.status(200).json(readFile);
-}
+};
 
 const upload = async (req, res, next) => {
-  console.log(req.file)
-  console.log('===>>', req.file.originalname)
   const uploadFile = await service.upload(req.file);
   if (uploadFile.code) return next(uploadFile);
 
   res.status(201).json(uploadFile);
-}
+};
 
 const remove = async (req, res) => {
   const { id } = req.params;
