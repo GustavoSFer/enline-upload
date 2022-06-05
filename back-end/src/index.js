@@ -6,7 +6,7 @@ const uploadController = require('./controller');
 const error = require('./middleware');
 
 app = express();
-PORT = 3001;
+PORT = process.env.PORT || 3001;
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
