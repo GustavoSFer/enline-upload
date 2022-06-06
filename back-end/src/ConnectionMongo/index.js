@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
-mongoose.connect('mongodb://localhost:27017/enline-db');
+
+const dbURI = process.env.DB_URI || 'mongodb://localhost:27017/enline-db';
+mongoose.connect(dbURI);
+
 
 const schema = new mongoose.Schema({
   file: String,

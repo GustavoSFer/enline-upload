@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const uploadController = require('./controller');
 const error = require('./middleware');
+require('dotenv').config();
 
 app = express();
 PORT = process.env.PORT || 3001;
